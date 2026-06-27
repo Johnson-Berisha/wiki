@@ -9,7 +9,7 @@ import starlightLlmsTxt from 'starlight-llms-txt';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://wiki.vistavalley.xyz',
+    site: 'https://wiki.vistavalley.net',
     trailingSlash: 'always',
     integrations: [
         starlight({
@@ -29,21 +29,21 @@ export default defineConfig({
                 // id: { label: 'Bahasa Indonesia', lang: 'id' },
             },
             favicon: '/logo.png',
-            social: [{ icon: 'discord', label: 'Discord', href: 'https://discord.vistavalley.xyz' }, { icon: 'github', label: 'GitHub', href: 'https://github.com/VistaValleyMC' }],
+            social: [{ icon: 'discord', label: 'Discord', href: 'https://discord.vistavalley.net' }, { icon: 'github', label: 'GitHub', href: 'https://github.com/VistaValleyMC' }],
             customCss: ['./src/styles/custom.css', '@fontsource-variable/anuphan/wght.css'],
             head: [
                 {
                     tag: 'meta',
                     attrs: {
                         property: 'og:image',
-                        content: 'https://wiki.vistavalley.xyz/logo.png'
+                        content: 'https://wiki.vistavalley.net/logo.png'
                     }
                 },
                 {
                     tag: 'meta',
                     attrs: {
                         name: 'twitter:image',
-                        content: 'https://wiki.vistavalley.xyz/logo.png'
+                        content: 'https://wiki.vistavalley.net/logo.png'
                     }
                 },
                 {

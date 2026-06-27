@@ -5,18 +5,18 @@
   </picture>
   <h1>Vista Valley: Official Wiki</h1>
   <p>
-    <a href="https://store.vistavalley.xyz"><img alt="Store" src="https://img.shields.io/badge/Store-Visit-555555?style=for-the-badge&logo=shopify&logoColor=ffffff&labelColor=FF9655&" /></a>
-    <a href="https://discord.vistavalley.xyz"><img alt="Discord" src="https://img.shields.io/discord/1239102938819854336.svg?style=for-the-badge&logo=discord&logoColor=ffffff&color=555555&labelColor=6A7EC2&label=Discord" /></a>
+    <a href="https://store.vistavalley.net"><img alt="Store" src="https://img.shields.io/badge/Store-Visit-555555?style=for-the-badge&logo=shopify&logoColor=ffffff&labelColor=FF9655&" /></a>
+    <a href="https://discord.vistavalley.net"><img alt="Discord" src="https://img.shields.io/discord/1239102938819854336.svg?style=for-the-badge&logo=discord&logoColor=ffffff&color=555555&labelColor=6A7EC2&label=Discord" /></a>
   </p>
   <p>
-    <a href="https://mcstatus.io/status/java/join.vistavalley.xyz"><img alt="Minecraft Server" height="100px" src="https://api.mcstatus.io/v2/widget/java/join.vistavalley.xyz?style=for-the-badge" /></a>
+    <a href="https://mcstatus.io/status/java/join.vistavalley.net"><img alt="Minecraft Server" height="100px" src="https://api.mcstatus.io/v2/widget/java/join.vistavalley.net?style=for-the-badge" /></a>
   </p>
 </div>
 
 Explore our vibrant community and discover what makes Vista Valley unique. Whether you’re here to join our server, learn about our community, or seek inspiration, you’ve come to the right place!
 
-- **Website**: https://wiki.vistavalley.xyz
-- **World Map**: https://map.vistavalley.xyz
+- **Website**: https://wiki.vistavalley.net
+- **World Map**: https://map.vistavalley.net
 
 This repo is made Open-Source for contributers to make best of additions and documentations for the server with **[📖 Wiki] Flairs** as a reward.
 

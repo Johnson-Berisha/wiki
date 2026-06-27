@@ -13,12 +13,7 @@
   </p>
 </div>
 
-Explore our vibrant community and discover what makes Vista Valley unique. Whether you’re here to join our server, learn about our community, or seek inspiration, you’ve come to the right place!
-
-- **Website**: https://wiki.vistavalley.net
-- **World Map**: https://map.vistavalley.net
-
-This repo is made Open-Source for contributers to make best of additions and documentations for the server with **[📖 Wiki] Flairs** as a reward.
+This repository is open source so our community can contribute changes and documentation updates. After successfully having 3 pull requests merged, users can claim the `[📖 Wiki]` flair as a reward by opening a ticket on our [Discord server](https://discord.vistavalley.net).
 
 ![flairs example](https://github.com/Meustrabil/wiki/blob/26a2e39730164a153adb63627e328e98722ed572/public/image_2026-04-21_130021869.png)
 

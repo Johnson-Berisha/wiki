@@ -67,8 +67,8 @@ export default defineConfig({
                                 link: 'home/welcome',
                             },
                             {
-                                label: 'Play Now',
-                                link: 'home/play-now',
+                                label: 'How to Join',
+                                link: 'home/how-to-join',
                             },
                             {
                                 label: 'Rules',

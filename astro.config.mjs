@@ -159,8 +159,8 @@ export default defineConfig({
                 starlightUiTweaks({
                     navbarLinks: [
                         { label: "Discord Server", href: "https://discord.vistavalley.net" },
-                        { label: "World Map", href: "https://map.vistavalley.net" },
-                        { label: "Server Store", href: "https://store.vistavalley.net" },
+                        { label: "Live Map", href: "https://map.vistavalley.net" },
+                        { label: "Webstore", href: "https://store.vistavalley.net" },
                     ],
                 }),
                 starlightPageActions({

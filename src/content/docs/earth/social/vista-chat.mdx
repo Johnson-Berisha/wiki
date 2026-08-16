@@ -1,26 +1,154 @@
 ---
 title: Vista Chat
+description: Complete reference for interactive chat placeholders, economy tags, and statistic macros.
+sidebar:
+  order: 1
 ---
 
-:::caution[Work in Progress]
-Information may be incomplete or inaccurate. Please check back later.
-:::
+Type any of the following macros directly into your chat message. The server replaces the macro tag inline with formatted text, live stats, or interactive UI elements.
 
-## Chat Keywords
+## Interactive Previews
 
-- `<item>` - Displays the item you're currently holding in chat.
-- `<money>` - Displays your current money balance in chat.
-- `<glims>` - Displays your current glims balance in chat.
-- `<gems>` - Displays your current gems balance in chat.
-- `<experience>` - Displays your current experience points in chat.
-- `<ping>` - Displays your current ping in chat.
-- `<playtime>` - Displays your current playtime in chat.
-- `<votes>` - Displays your current votes in chat.
-- `<voteparty>` - Displays the remaining votes for the vote party in chat.
-- `<town>` - Displays your current town in chat.
-- `<nation>` - Displays your current nation in chat.
-- `<enderchest>` - Displays your enderchest contents in chat. (Alias is `<echest> / <ec>`)
-- `<inventory>` - Displays your inventory contents in chat. (Alias is `<inv>`)
+Interactive macros display clickable text in chat allowing other players to view items or open container menus. Previews expire after 5 minutes.
+
+| Macro | Aliases | Description |
+| :--- | :--- | :--- |
+| `<item>` | `<iteminhand>`, `<hand>`, `<i>` | Displays the item currently held in your main hand with full lore and enchants. |
+| `<inventory>` | `<inv>` | Opens an interactive view of your current inventory. |
+| `<enderchest>` | `<echest>`, `<ec>` | Opens an interactive view of your ender chest contents. |
+
+## Player & Economy
+
+Economy placeholders show your current balances and provide interactive click-to-pay shortcuts for other players.
+
+| Macro | Aliases | Description |
+| :--- | :--- | :--- |
+| `<money>` | `<balance>`, `<bal>` | Displays your Vault balance with a shortcut to `/pay`. |
+| `<glims>` | `<glim>` | Displays your Glim balance with a shortcut to `/glims pay`. |
+| `<gems>` | `<gem>` | Displays your Gem balance with a shortcut to `/gems pay`. |
+| `<experience>` | `<experiencepoints>`, `<exp>` | Displays your current experience points. |
+| `<homes>` | — | Displays your set homes versus maximum allowed homes (`set/max`). |
+| `<ping>` | — | Displays your current server latency in milliseconds. |
+| `<playtime>` | — | Displays your total recorded playtime on the server. |
+| `<firstjoindate>` | — | Displays the timestamp of when you first joined Vista Valley. |
+| `<gamesleft>` | — | Displays how many times you have disconnected from the server. |
+
+## Towny & Voting
+
+| Macro | Aliases | Description |
+| :--- | :--- | :--- |
+| `<town>` | — | Displays your current Towny town name. |
+| `<nation>` | — | Displays your current Towny nation name. |
+| `<votes>` | — | Displays your all-time total vote count. |
+| `<monthlyvotes>` | — | Displays your vote count for the current calendar month. |
+| `<previousmonthlyvotes>` | — | Displays your vote count from the previous calendar month. |
+| `<voteparty>` | — | Displays the remaining votes required to trigger the next Vote Party. |
+
+## Combat & Survival
+
+| Macro | Aliases | Description |
+| :--- | :--- | :--- |
+| `<damagedealt>` | — | Total damage dealt to entities. |
+| `<damagetaken>` | — | Total damage received. |
+| `<damageresisted>` | — | Total damage mitigated via resistance effects. |
+| `<damageabsorbed>` | — | Total damage absorbed by absorption hearts. |
+| `<damageblocked>` | — | Total damage blocked using a shield. |
+| `<deaths>` | — | Total number of player deaths. |
+| `<timesincedeath>` | — | Time elapsed since your last death. |
+| `<timesincerest>` | — | Time elapsed since you last slept in a bed. |
+| `<mobskilled>` | — | Total hostile and neutral monsters defeated. |
+| `<playerskilled>` | — | Total players defeated in PvP. |
+| `<villagerskilled>` | — | Total villagers killed. |
+| `<catskilled>` | — | Total cats killed. |
+| `<dogskilled>` | — | Total tamed wolves/dogs killed. |
+| `<raidstriggered>` | — | Total village raids triggered. |
+| `<raidswon>` | — | Total village raids successfully defeated. |
+| `<targetshit>` | — | Total target blocks struck with projectiles. |
+
+## Movement & Exploration
+
+All distance statistics calculate distance traveled in blocks.
+
+| Macro | Aliases | Description |
+| :--- | :--- | :--- |
+| `<distancewalked>` | — | Distance covered on foot. |
+| `<distancesprinted>` | — | Distance covered while sprinting. |
+| `<distancecrouched>` | — | Distance covered while sneaking. |
+| `<timesneaked>` | — | Total time spent crouching. |
+| `<distanceclimbed>` | — | Distance climbed on ladders, vines, and scaffolding. |
+| `<distancefallen>` | — | Distance fallen through the air. |
+| `<jumps>` | `<jump>` | Total number of jumps made. |
+| `<distanceswum>` | — | Distance swum in water. |
+| `<distanceunderwater>` | — | Distance walked while submerged underwater. |
+| `<distanceonwater>` | — | Distance walked across water surfaces. |
+| `<distanceflown>` | — | Distance flown (creative/spectator or abilities). |
+| `<distancebyelytra>` | — | Distance glided using Elytra wings. |
+| `<distancebyboat>` | — | Distance traveled inside a boat. |
+| `<distancebyhorse>` | — | Distance traveled while riding a horse. |
+| `<distancebyminecart>` | — | Distance traveled on minecart tracks. |
+| `<distancebypig>` | — | Distance traveled while riding a pig. |
+| `<distancebystrider>` | — | Distance traveled while riding a strider across lava. |
+| `<distancebynautilus>` | — | Distance traveled riding custom water mounts. |
+| `<distancebyhappyghast>` | — | Distance traveled riding Happy Ghasts. |
+
+## Mining, Crafting & Items
+
+| Macro | Aliases | Description |
+| :--- | :--- | :--- |
+| `<blocksmined>` | — | Total blocks broken across all worlds. |
+| `<itemscrafted>` | — | Total items crafted in crafting grids. |
+| `<itemsused>` | — | Total tools, weapons, and consumables used. |
+| `<itemsbroken>` | — | Total tools and armor pieces depleted to 0 durability. |
+| `<itemsdropped>` | — | Total items dropped onto the ground. |
+| `<itemsenchanted>` | — | Total items enchanted at an enchantment table. |
+
+## Workstation & Container Interactions
+
+| Macro | Aliases | Description |
+| :--- | :--- | :--- |
+| `<chestsopened>` | — | Total regular chests opened. |
+| `<enderchestsopened>` | — | Total ender chests opened. |
+| `<barrelsopened>` | — | Total barrels opened. |
+| `<shulkerboxesopened>` | — | Total shulker boxes opened. |
+| `<trappedcheststriggered>` | — | Total trapped chests triggered. |
+| `<craftingtableinteractions>` | — | Total crafting tables used. |
+| `<furnaceinteractions>` | — | Total standard furnaces accessed. |
+| `<blastfurnaceinteractions>` | — | Total blast furnaces accessed. |
+| `<smokerinteractions>` | — | Total smokers accessed. |
+| `<brewingstandinteractions>` | — | Total brewing stands accessed. |
+| `<anvilinteractions>` | — | Total anvils accessed. |
+| `<grindstoneinteractions>` | — | Total grindstones accessed. |
+| `<smithingtableinteractions>` | — | Total smithing tables accessed. |
+| `<stonecutterinteractions>` | — | Total stonecutters accessed. |
+| `<loominteractions>` | — | Total looms accessed. |
+| `<cartographytableinteractions>` | — | Total cartography tables accessed. |
+| `<campfireinteractions>` | — | Total campfires cooked on or interacted with. |
+| `<beaconinteractions>` | — | Total beacons accessed. |
+| `<lecterninteractions>` | — | Total lecterns interacted with. |
+| `<dispensersinspected>` | — | Total dispensers opened. |
+| `<droppersinspected>` | — | Total droppers opened. |
+| `<hoppersinspected>` | — | Total hoppers opened. |
+| `<cauldronsused>` | — | Total interactions taking liquid from cauldrons. |
+| `<cauldronsfilled>` | — | Total times cauldrons were filled with buckets or bottles. |
+| `<armorcleaned>` | — | Total leather armor pieces washed in cauldrons. |
+| `<bannerscleaned>` | — | Total banner layers washed in cauldrons. |
+| `<shulkerboxescleaned>` | — | Total dyed shulker boxes bleached in cauldrons. |
+
+## Farming, Animals & World Interactions
+
+| Macro | Aliases | Description |
+| :--- | :--- | :--- |
+| `<animalsbred>` | — | Total animals bred together. |
+| `<fishcaught>` | — | Total fish and items reeled in with fishing rods. |
+| `<flowerspotted>` | — | Total flowers placed into flower pots. |
+| `<cakesliceseaten>` | — | Total cake slices consumed. |
+| `<timessleptinbed>` | — | Total times slept in a bed to pass the night. |
+| `<talkedtovillagers>` | — | Total times villager interaction menus were opened. |
+| `<villagertrades>` | — | Total completed trades with villagers. |
+| `<bellsrung>` | — | Total times town and village bells were rung. |
+| `<recordsplayed>` | — | Total music discs inserted into jukeboxes. |
+| `<noteblocksplayed>` | — | Total note blocks struck to play sound. |
+| `<noteblockstuned>` | — | Total times note blocks were tuned to a new pitch. |
 
 ## Chat Channels
 

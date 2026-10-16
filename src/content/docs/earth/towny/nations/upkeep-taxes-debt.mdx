@@ -1,5 +1,46 @@
 ---
 title: Upkeep, Taxes & Debt
+description: Technical breakdown of national upkeep formulas, member town taxation, and treasury rules.
 ---
 
-Your nation will have to pay `$150` per claimed plot in each town in the nation daily. You can set taxes so that each town in the nation are required to contribute to the nation by typing `/n set taxes [Amount]` - there is also an option to do tax percentage.
+## Nation Upkeep Costs
+
+Nation upkeep is deducted automatically every 24 hours at `12:00` server time from the national bank account. Upkeep is charged per member town:
+
+> Daily Nation Upkeep = (Member Towns x $2,500) x Nation Level Upkeep Multiplier
+
+### Calculation Examples
+
+- 2 member towns at Level 1 Union (1.0x modifier): `$5,000` daily.
+- 6 member towns at Level 6 Empire (2.3x modifier): `$34,500` daily.
+- 10 member towns at Level 10 Sovereign Hegemony (4.2x modifier): `$105,000` daily.
+
+## Nation Taxes on Member Towns
+
+Nation leaders can collect daily taxes from member towns. Taxes are deducted directly from each member town's bank account during the daily upkeep cycle. Active tax rates can be viewed with `/towny prices` or `/n [NationName]`.
+
+### Fixed Daily Taxes
+
+Monarchs can set a mandatory flat daily tax on all member towns using `/n set taxes [Amount]`. 
+
+- New nations default to `$1,000` per town daily.
+- The maximum allowed flat tax is `$100,000` per town daily.
+
+### Percentage Daily Taxes
+
+Nations can tax a percentage of each member town's bank balance using `/n toggle taxpercent` and `/n set taxes [Percentage]`.
+
+- Percentage tax is capped at `10%` of a town's bank balance or `$100,000` daily, whichever is lower.
+
+:::note[Tax Non-Payment]
+If a member town cannot pay the daily nation tax when upkeep runs, that town is kicked from the nation, loses all nation claim bonuses, and reverts to independent status.
+:::
+
+## Treasury Banking & Dissolution
+
+National accounts are managed through the national bank. Deposits can be made from any location using `/n deposit [Amount]`. Withdrawals via `/n withdraw [Amount]` are restricted to the capital city.
+
+- Nations do not have debt or ruined states.
+- If the national bank balance is insufficient to cover daily upkeep, the nation is deleted immediately.
+- All member towns revert to independent status.
+- Bonus townblocks granted by the nation tier (`+25` to `+375` plots per town) are removed immediately upon deletion.

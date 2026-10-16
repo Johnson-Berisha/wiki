@@ -108,6 +108,8 @@ export default defineConfig({
                                 collapsed: true,
                                 items: [
                                     { label: 'Overview', link: 'earth/towny' },
+                                    { label: 'Creating a Town', link: 'earth/towny/creating-a-town' },
+                                    { label: 'Creating a Nation', link: 'earth/towny/creating-a-nation' },
                                     { label: 'Commands', link: 'earth/towny/commands' },
                                     { label: 'Towns', items: [{ autogenerate: { directory: 'earth/towny/towns', collapsed: true } }] },
                                     { label: 'Nations', items: [{ autogenerate: { directory: 'earth/towny/nations', collapsed: true } }] },
@@ -132,6 +134,13 @@ export default defineConfig({
                                 collapsed: true,
                                 items: [
                                     { autogenerate: { directory: 'earth/remnants', collapsed: true } }
+                                ],
+                            },
+                            {
+                                label: 'Changelogs',
+                                collapsed: true,
+                                items: [
+                                    { autogenerate: { directory: 'earth/changelogs', collapsed: true } }
                                 ],
                             },
                         ],

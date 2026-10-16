@@ -1,0 +1,89 @@
+---
+title: Patch Notes — October 15, 2026
+description: Comprehensive Towny economy overhaul, expanded town and nation progression, interactive mob mechanics, and gameplay tweaks.
+date: 2026-10-15
+---
+
+## Towny Overhaul
+
+This update rebalances Vista Valley's territorial systems, progression scaling, and upkeep economy. Town progression now spans 12 tiers up to 65 residents, while nations expand into 10 tiers scaling up to 225 residents. Base plot maintenance and outpost costs have been reduced and paired with dynamic level multipliers, bankrupt towns receive a protected 14-day grace period with scaling debt caps, and nation maintenance transitions to a predictable per-town upkeep formula.
+
+### Claims & Territory Distances
+
+- Reduced the minimum gap required between unallied town claims from `5` to `3` chunks.
+- Increased the buffer zone around town homeblocks from `5` to `6` chunks.
+- Increased the minimum distance required to establish an outpost from `3` to `5` chunks away from neighboring towns.
+- Towns within the same nation or mutually allied nations can claim directly adjacent to one another without distance restrictions.
+
+### Town Ruins
+
+- Towns that fall due to bankruptcy or deletion now linger as ruins for up to `72` hours before permanent removal.
+- Ruined towns cannot be claimed over and maintain active land protection while standing.
+- Former residents can reclaim their ruined settlement after `24` hours using `/t reclaim` for `$10,000`.
+- Ruined towns no longer enforce border buffer zones, allowing neighboring towns to claim right up against their borders.
+
+### Town Progression & Levels
+
+- Expanded town progression from 10 to 12 distinct resident tiers, scaling up to `65` residents for the top tier (`Ecumenopolis`).
+- Scaled base townblock claim limits, bonus claim purchase caps, and outpost allowances across all resident milestones, supporting up to `950` base claims and `6` outposts.
+- Updated mayoral titles and tier badges to include `Settler`, `Alderman`, `Burgess`, `Grand Duke`, `High Chancellor`, and `Sovereign`.
+
+### Economy, Upkeep & Bankruptcy
+
+- Reduced base plot upkeep from `$50` down to `$25` per chunk, scaling dynamically with town level upkeep modifiers (`1.0x` for Camps up to `4.25x` for Ecumenopolises) with a `$250` minimum daily floor.
+- Reduced daily outpost maintenance costs by half, from `$5,000` down to `$2,500` per outpost.
+- Reduced the daily upkeep penalty for overclaimed plots from `$500` down to `$250` per chunk.
+- Scaled bankruptcy debt caps dynamically using town level multipliers with a `$25,000` base value (reaching up to `$275,000` for endgame towns) instead of a flat `$100,000` cap.
+- Added a fixed `14`-day grace period for bankrupt towns to clear arrears before facing deletion into ruins.
+- Bankrupt towns can no longer pay to maintain peaceful or neutral status, and towns that reach their maximum debt ceiling are automatically kicked from their nation.
+- Restricted homeblock relocation to once every `24` hours (previously `1` hour), moving up to `5` chunks per relocation.
+- Increased action cooldowns from `30` to `60` seconds for toggling PvP/peacefulness, unclaiming plots, and founding a town post-deletion.
+- Set newly founded towns to default to PvP disabled (mayors can toggle it anytime using `/t toggle pvp`).
+- Land transfers via `/t cede` now incur a `$5,000` fee paid directly by the ceding town.
+- Inactive residents offline for `60`+ days no longer contribute bonus plots toward their town's claim cap.
+- Hidden town bank balances from non-residents on `/town <name>` status screens.
+
+### Nations & Invites
+
+- Overhauled nation progression into 10 distinct tiers scaling up to `225` residents: Union (`5`), Republic (`12`), Federation (`22`), Kingdom (`38`), Grand Realm (`58`), Empire (`82`), Commonwealth (`110`), Hegemony (`145`), Imperium (`180`), and Sovereign Hegemony (`225`).
+- Lowered resident requirements to establish a nation from `10` down to `5`, and to join an existing nation from `5` down to `3`.
+- Replaced per-plot nation upkeep with a predictable per-town maintenance model: nations pay `$2,500` base upkeep per member town daily, scaled by the nation tier upkeep modifier (`1.0x` to `4.2x`).
+- Added high-tier nation bonuses granting up to `+375` bonus claim blocks per member town and up to `5` extra outposts.
+- Reduced the maximum nation tax cap on member towns from `25%` down to `10%`.
+- Extended town and nation invite validity to `6` hours (previously `5` minutes).
+- Lowered outgoing invite capacity to `20` per town/nation (previously `50`), and limited incoming pending invites to `10` per player (previously `25`).
+
+### Mob Protection & System Sweeps
+
+- Excluded spawner-spawned mobs and name-tagged mobs from automated town mob clearance sweeps.
+- Optimized backend pre-spawn validation and entity sweeps during town mob removal cycles to prevent tick drops.
+
+### Jail & Outlaw Handling
+
+- Outlaw and prisoner-of-war jail sentences remain capped at `3` hours, with mayor-issued manual sentences capped at `6` hours.
+- Patched jail evasion exploits: executing `/town leave` or disconnecting while incarcerated will no longer clear sentences, respawning inmates directly in their cell.
+- Jailed players now automatically receive an explanatory guide detailing sentence duration, bail costs, and release terms.
+
+## Gameplay Quirks & Interactions
+
+- Stonecutters deal half a heart of damage every `0.4` seconds to any entity standing on them, accompanied by a saw sound effect.
+- Players can now leash Villagers and Wandering Traders with a Lead.
+- Right-clicking a Shulker with any dye instantly recolors its shell.
+- Right-clicking a Parrot with Red, Blue, Green, Cyan, or Gray dye changes its plumage to match the corresponding variant.
+- Right-clicking a Fox with a Red Tulip turns it into a Red Fox, while a White Tulip transforms it into a Snow Fox.
+- Right-clicking Cows, Pigs, Chickens, or Frogs with specific environmental items alters their climate variant:
+  - Packed Ice transforms them into Cold variants.
+  - Podzol transforms them into Temperate variants.
+  - Magma Cream transforms them into Warm variants.
+- Mobs frozen using a clock now emit a subtle snowflake particle aura for visual clarity.
+- Feeding a Golden Apple to your own tamed pet instantly restores it to full health.
+- Over 30 passive mob species can retaliate when attacked and carry a `10%` chance to spawn naturally aggressive: Chicken, Cow, Sheep, Pig, Rabbit, Goat, Armadillo, Camel, Sniffer, Horse, Donkey, Mule, Llama, Trader Llama, Panda, Polar Bear, Fox, Cat, Ocelot, Parrot, Turtle, Frog, Axolotl, Bat, Allay, Villager, Wandering Trader, Dolphin, Cod, Salmon, Pufferfish, Tropical Fish, Tadpole, and Strider.
+- Rabbits carry a `5%` chance to spawn naturally as The Killer Bunny.
+- Baby Zombies have a `20%` chance to spawn riding an animal mount: Goats, Pandas, Foxes, Sheep, Cows, Pigs, Wolves, or baby Sniffers.
+- Illusioners carry a `15%` chance of spawning in Abandoned Camp structure variants.
+
+## Quality of Life & Fixes
+
+- Lowered the server Vote Party trigger threshold from `75` down to `50` collective votes.
+- Resolved an issue where saddled mounts conflicted with custom mob riding controls.
+- Sponsors with Sapphire rank or above can use `/fly` in the Spawn and Nexus worlds regardless of their current Star Rank.

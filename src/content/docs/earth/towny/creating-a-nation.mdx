@@ -1,0 +1,35 @@
+---
+title: Creating a Nation
+description: Specifications and commands for establishing a nation and managing member towns.
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+## Requirements & Founding
+
+Founding a nation unites multiple towns under a single territorial entity, removes claim buffers between member towns, and grants townblock and outpost bonuses.
+
+- A town must have at least 5 residents to create a nation.
+- The creation fee is `$125,000`, deducted from the town bank upon creation.
+- The founding town becomes the capital city.
+- Independent towns must have at least 3 residents to join an existing nation.
+
+<Steps>
+1. Verify the town meets the 5-resident threshold and has at least `$125,000` in the town bank. Funds can be deposited via `/t deposit [Amount]`.
+
+2. Run `/n new [Nation Name]` within town boundaries. Spaces are automatically converted to underscores.
+
+3. Invite towns to join using `/n invite [Town Name]`. Invited towns accept using `/accept`.
+
+4. Deposit currency into the national bank using `/n deposit [Amount]` to cover ongoing daily upkeep.
+</Steps>
+
+:::caution[Disbandment]
+Nations cannot hold debt. If the national bank cannot pay daily upkeep at `12:00` server time, the nation is deleted and member towns become independent. If a nation disbands due to resident counts dropping below tier requirements, the `$125,000` creation fee is refunded to the capital city bank.
+:::
+
+## Member Limits & Alliance Perks
+
+- Nations can hold up to 10 member towns.
+- Towns in the same nation ignore wilderness distance rules, allowing them to claim plots directly adjacent to one another.
+- Residents can teleport to allied member towns and the capital city using `/n spawn [NationName]`.

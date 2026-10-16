@@ -1,0 +1,24 @@
+---
+title: Creating a Town
+description: Requirements, costs, commands, and rules for founding and expanding a town.
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+## Founding Steps
+
+<Steps>
+1. Locate an unclaimed area in the wilderness that is at least `6` chunks away from unallied town homeblocks and `3` chunks away from unallied town claims. Stand in the desired chunk and run `/t new [Town Name]`. Spaces are automatically converted to underscores.
+
+    :::note[Founding Cost & Bankruptcy]
+    Founding a town costs `$2,500`. If a town bank balance reaches zero, the town enters a 14-day bankruptcy state with a debt limit determined by the town level (`$25,000` at Camp tier).
+    :::
+
+2. Deposit funds into the town bank using `/t deposit [Amount]`. Upkeep is deducted daily at `12:00` server time (`/towny time`). Plot upkeep costs `$25` per claimed chunk multiplied by the town level upkeep modifier, with a daily minimum floor of `$250`.
+
+3. Towns claim land in 16x16 chunk increments (`F3` + `G` toggles chunk boundaries). Towns begin with 1 claimed chunk (the homeblock). To claim adjacent wilderness chunks, run `/t claim` (`$250` per chunk). Towns at Camp tier can claim up to 25 base chunks and purchase up to 25 bonus blocks using `/t buy bonus [Amount]` for `$500` per block. Claim limits and bonus block caps increase as resident counts rise.
+
+4. Mayors can levy daily taxes on residents. Taxes can be set as a flat rate using `/t set taxes [Amount]` or as a balance percentage (up to `25%` or `$100,000`, whichever is lower) using `/t toggle taxpercent`. Taxes are collected daily alongside town upkeep.
+
+5. To claim territory disconnected from the main town border, run `/t claim outpost` (`$15,000`). Claiming an outpost requires Settlement tier (at least 2 residents). Each outpost adds `$2,500` to daily town upkeep and must be placed at least `5` chunks away from neighboring town plots.
+</Steps>

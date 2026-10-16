@@ -1,40 +1,62 @@
 ---
 title: Levels, Ranks & Titles
+description: Overview of the 10 nation progression tiers, collective resident requirements, member town bonuses, leadership ranks, and titles.
 ---
 
 ## Nation Levels
 
-Each nation can progress into multiple stages and unlock benefits.
+Nations progress through 10 distinct tiers based on the total collective resident count across all member towns. Advancing tiers grants bonus townblocks to all member towns, increases outpost limits, and unlocks monarch titles.
 
-| Nation Level | Minimum Residents | Nation Upkeep Modifier | Town Upkeep Modifier | Bonus Town Blocks | Bonus Outposts |
-|--------------|-------------------|------------------------|----------------------|-------------------|----------------|
-| Union | 15 | 1 | 1 | 25 | 0 |
-| Republic | 30 | 2 | 1.2 | 50 | 1 |
-| Protectorate | 45 | 3 | 1.4 | 75 | 1 |
-| Kingdom | 60 | 4 | 1.6 | 100 | 1 |
-| Dominion | 75 | 5 | 1.8 | 125 | 1 |
-| Divine Realm | 90 | 6 | 2 | 150 | 1 |
+| Nation Level | Required Residents | Monarch Title | Upkeep Multiplier | Member Town Upkeep Surcharge | Bonus Town Blocks (Per Town) | Bonus Outposts | Nation Zone Radius |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Union | 5 | Leader | 1.0x | 1.00x | +25 | +0 | 1 chunk |
+| Republic | 12 | President | 1.2x | 1.02x | +40 | +1 | 1 chunk |
+| Federation | 22 | Consul | 1.45x | 1.04x | +60 | +1 | 1 chunk |
+| Kingdom | 38 | King | 1.7x | 1.06x | +85 | +2 | 2 chunks |
+| Grand Realm | 58 | Archduke | 2.0x | 1.08x | +115 | +2 | 2 chunks |
+| Empire | 82 | Emperor | 2.3x | 1.10x | +150 | +3 | 2 chunks |
+| Commonwealth | 110 | Lord Protector | 2.7x | 1.12x | +190 | +3 | 3 chunks |
+| Hegemony | 145 | Grand Emperor | 3.1x | 1.14x | +240 | +4 | 3 chunks |
+| Imperium | 180 | High Imperator | 3.6x | 1.16x | +300 | +4 | 3 chunks |
+| Sovereign Hegemony | 225 | Grand Sovereign | 4.2x | 1.20x | +375 | +5 | 4 chunks |
+
+### Tier Benefits Breakdown
+
+- Bonus town blocks are credited automatically as an additional claim allowance to every member town within the nation.
+- Bonus outposts increase the total number of remote outposts each member town can establish.
+- Member town upkeep surcharges apply a multiplier to each town's local plot upkeep for belonging to a higher-tier nation.
+- Nation zone radius defines the wilderness buffer surrounding the capital city that restricts unauthorized building and interactions.
 
 ## Nation Ranks
 
-Within a nation, you can be granted various ranks that come with specific permissions. Being granted a rank is a high privilege and you should try your best to fill the role adequately. Below is a list of ranks and the permissions they come with. Ranks can be given to residents with the command `/t rank add [Username] [Rank]`.
+Nation leaders can assign administrative, diplomatic, and financial roles to citizens across any member town using `/n rank add [Username] [Rank]`.
 
-1. **King**:
-    * The supreme ruler of the nation.
-    * Has full control over all nation actions and decisions.
+### Monarch / King
 
-2. **Assistant**: Can manage the nation, including:
-    * Adding or removing allies.
-    * Managing enemies.
+- Held by the mayor of the capital city.
+- Holds full administrative control, including disbandment, capital relocation, taxation, setting the national spawn, and managing diplomatic declarations.
 
-3. **Treasurer**: Can manage the nation's finances, including:
-    * Depositing and withdrawing money from the nation bank.
-    * Accessing the nation's financial history.
+### Assistant
 
-4. **Helper**: Can add towns to the nation.
+- Manages diplomacy and territorial expansion.
+- Sends invitations to independent towns using `/n invite [TownName]`.
+- Manages alliances and enemy declarations.
+- Deposits funds into other town accounts.
+- Assigns the Helper rank to citizens.
 
-## Nation Titles
+### Treasurer
 
-You can assign customised nation titles to members of your nation. These have no gameplay impact and provide some simple aesthetic and informational flavour.
+- Manages national finances.
+- Deposits to the nation bank and other accounts.
+- Withdraws funds from the national treasury while inside the capital city.
+- Views the nation bank transaction history and balance leaderboard via `/n baltop`.
 
-You can assign these titles via `/n set title [Username] [Title]`. These titles can be given special colours, either via regular Minecraft colour codes (`&[code]`) or a specific hex colour (`<#[hex]>`). Nation titles will override town titles.
+### Helper
+
+- Serves as a recruiter authorized to add towns to the nation using `/n add [TownName]`.
+
+## Nation Titles & Surnames
+
+Monarchs can assign custom titles and surnames to any citizen in the nation using `/n set title [Username] [Title]` and `/n set surname [Username] [Surname]`. 
+
+Titles support standard color codes and MiniMessage hex formatting (`<#RRGGBB>`). Nation titles take visual precedence over local town titles in chat and status screens.

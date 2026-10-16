@@ -1,27 +1,72 @@
 ---
 title: Upkeep, Taxes & Debt
+description: Master the mechanics of plot upkeep formulas, municipal resident taxation, bankruptcy grace periods, and town ruins.
 ---
 
 ## Town Upkeep Costs
 
-Town upkeep costs play a big part in the economy on the server, and is required to keep everything balanced - it gives you a good reason to keep grinding and making money. Your town will have to pay `$50` per claimed plot (same as townblock, or more commonly known as claim) daily. This value is further amplified if your town has an outpost, which adds `$4,800` to the base value.
+Territorial claims require continuous capital investment to fund protection grids and prevent inactive land hoarding on the 1:500 Earth map. Town upkeep is calculated and withdrawn automatically every 24 hours at midday (`12:00` server time, checkable via `/towny time`).
 
-### Overclaim Penalty
+Town upkeep is plot-based and calculated using the following formula:
 
-Having more claimed plots than your town's limit will incur an overclaim penalty. Your town will have to pay an additional `$200` per overclaimed plot on top of the daily upkeep.
+> **Daily Upkeep** = (Claimed Plots x $25) x Town Level Upkeep Multiplier + (Outposts x $2,500)
+
+Upkeep enforces a mandatory minimum floor of `$250` per day. A small Camp claiming only 5 chunks will pay the `$250` floor rather than `$125`.
+
+### Outpost Surcharges
+
+Each remote outpost claimed via `/t claim outpost` adds a flat `$2,500` daily maintenance cost to your town upkeep. This fee is added after your plot upkeep calculation and is not multiplied by your town level multiplier.
+
+### Overclaim Penalties
+
+If residents leave or become inactive, your town's maximum allowed claim limit may drop below your current claimed chunk count. When this occurs, the town becomes overclaimed.
+
+Overclaimed settlements incur an aggressive penalty of `$250` per overclaimed chunk every day, added directly on top of standard plot upkeep and outpost costs. Mayors must unclaim surplus territory via `/t unclaim` or recruit new residents to restore their claim ratios before maintenance costs drain their treasury.
 
 ## Town Taxes
 
-Most towns have taxes to help the mayor pay for their town's upkeep - you can view a town's taxes by using `/t [Town Name]` or `/towny prices` in-game. When the money is taken from your balance, it is put directly into the Town Bank.
+Mayors can levy daily taxes on residents to finance territory expansion and automated upkeep. Taxes are collected from resident personal accounts and deposited directly into the Town Bank simultaneously with the daily upkeep cycle.
 
-Town Taxes are taken daily at `12 PM GMT +8` from the Town Bank.
+You can inspect your town's active tax rates using `/towny prices` or `/t [townName]`.
 
-As the mayor of the town, you can choose how much you want to tax your residents using `/t set taxes [Amount]`, or you can use `/t toggle taxpercent` to set tax to be a percentage of your resident's balance.
+### Fixed Taxes
 
-Using percentage tax may discourage players from joining your town, as players with a high balance may be excessively taxed.
+Mayors can establish a flat fee charged to every resident daily using `/t set taxes [amount]`. If a resident cannot afford the daily flat tax, they are automatically kicked from the town and revert to nomad status.
 
-## Bankruptcy and Ruined Towns
+### Percentage Taxes
 
-To prevent your town from going bankrupt, you must have enough money in your town's bank to pay your town's upkeep each day. If you cannot pay this, your town will enter a **bankrupt state** and the bank will go into the negatives. In this state, you will not be able to make any adjustments to your town until you put enough money in the bank to reach a positive balance again.
+Towns can tax a percentage of each resident's total balance rather than a flat fee. Mayors can toggle this mode using `/t toggle taxpercent` and adjust the rate using `/t set taxes [percentage]`. 
 
-Your town's **debt cap** (how far negative the balance can go) is the combined price of all your claimed chunks, outposts and plots - it is limited to a maximum of `$100 000`.
+Percentage taxes are hard-capped at a maximum of `25%` or `$100,000` per resident per day, whichever amount is lower. While useful for generating funding from wealthy residents, high percentage taxes can deter new recruits from joining your settlement.
+
+## Bankruptcy & Grace Periods
+
+If your Town Bank balance cannot cover daily upkeep fees, your settlement does not instantly disappear. Instead, the town enters a protected bankrupt state.
+
+While in bankruptcy:
+- The Town Bank balance drops into negative numbers, tracking your accumulated debt.
+- All territorial expansion is frozen: the town cannot claim new chunks, purchase bonus blocks, or establish outposts.
+- Recruitment is restricted, preventing new player joins.
+- The town loses peaceful/neutral protection, as bankrupt towns cannot pay neutrality fees.
+- If a bankrupt town reaches its maximum debt limit, it is automatically kicked from its nation.
+
+### Debt Ceilings
+
+Your maximum allowable debt scales dynamically with your town level:
+
+> **Debt Ceiling** = $25,000 x Town Level Debt Modifier
+
+A Level 1 Camp can accumulate up to `$25,000` in negative debt, while a Level 10 Grand Citadel can reach up to `$187,500` before breaching their ceiling. 
+
+### The 14-Day Recovery Window
+
+Bankrupt towns receive a fixed 14-day grace period to restore financial solvency. Mayors and residents can clear their arrears at any time by depositing cash directly into the treasury using `/t deposit [amount]`. As soon as the bank balance returns above `$0`, the town immediately exits bankruptcy and restores full operational functionality.
+
+## Town Ruins
+
+If a town reaches its maximum debt ceiling or remains bankrupt past the 14-day grace period, the municipality collapses and transitions into a Ruined Town for up to `72` hours.
+
+- Ruined towns cannot be claimed over by outside factions, and all grief protection remains active.
+- Neighboring towns can claim plots directly adjacent to ruined borders without respecting distance buffer rules.
+- For the first `24` hours, ruins remain locked. After 24 hours have elapsed, any former resident of the town can reclaim the entire settlement by running `/t reclaim` and paying a `$10,000` restoration fee.
+- If 72 hours elapse without a resident executing `/t reclaim`, the town is permanently deleted from the world database, reverting all territory to wild, claimable wilderness.

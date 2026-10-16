@@ -1,51 +1,81 @@
 ---
 title: Levels, Ranks & Titles
+description: Specifications for town progression tiers, resident scaling, municipal staff ranks, and cosmetic titles.
 ---
 
 ## Town Levels
 
-Each town can progress into multiple stages and unlock benefits.
+Towns advance through 12 progression tiers based on resident count. Higher levels grant larger claim limits, higher bonus block purchase caps, additional outpost slots, expanded debt capacity, and updated mayoral titles.
 
-| Town Level | Minimum Residents | Upkeep Modifier | Town Block Limit | Purchasable Town Blocks | Outpost Limit |
-|------------|-------------------|-----------------|------------------|-------------------------|---------------|
-| Camp | 1 | 1 | 15 | 15 | 0 |
-| Colony | 3 | 1 | 45 | 30 | 0 |
-| Folkstead | 6 | 1.5 | 90 | 45 | 1 |
-| Village | 9 | 2 | 135 | 60 | 2 |
-| Charter Town | 12 | 2.5 | 180 | 75 | 3 |
-| Large Town | 15 | 3 | 225 | 90 | 3 |
-| Municipality | 18 | 4 | 270 | 105 | 4 |
-| Major City | 21 | 4 | 315 | 120 | 4 |
-| Metropolis | 24 | 5 | 360 | 135 | 5 |
-| Citadel | 27 | 6 | 405 | 150 | 5 |
+| Town Level | Required Residents | Mayor Title | Upkeep Multiplier | Base Claim Limit | Bonus Block Cap | Outpost Limit | Debt Cap |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Camp | 1 | Wanderer | 1.0x | 25 | 25 | 0 | $25,000 |
+| Settlement | 2 | Settler | 1.1x | 50 | 45 | 1 | $32,500 |
+| Folkstead | 4 | Chief | 1.2x | 85 | 70 | 1 | $42,500 |
+| Village | 7 | Elder | 1.35x | 130 | 100 | 2 | $55,000 |
+| Township | 11 | Alderman | 1.5x | 185 | 135 | 2 | $70,000 |
+| Borough | 16 | Burgess | 1.75x | 250 | 175 | 3 | $87,500 |
+| City | 22 | Mayor | 2.0x | 330 | 220 | 3 | $107,500 |
+| Major City | 29 | Baron | 2.35x | 420 | 270 | 4 | $130,000 |
+| Metropolis | 36 | Count | 2.75x | 520 | 330 | 4 | $155,000 |
+| Grand Citadel | 44 | Grand Duke | 3.25x | 640 | 400 | 5 | $187,500 |
+| Megacity | 53 | High Chancellor | 3.75x | 780 | 480 | 5 | $225,000 |
+| Ecumenopolis | 65 | Sovereign | 4.25x | 950 | 580 | 6 | $275,000 |
+
+### Progression Dynamics
+
+- Base claim limits represent the maximum territory chunks granted automatically by resident count.
+- Bonus block caps specify the maximum additional chunks a town can purchase using `/t buy bonus [Amount]`.
+- Outpost limits regulate the number of disconnected territories a town can claim via `/t claim outpost`.
+- Debt caps determine the maximum negative treasury balance permitted during bankruptcy before the town falls into ruins.
 
 ## Town Ranks
 
-Within a town, you can be granted various ranks that come with specific permissions. Being granted a rank is a high privilege and you should try your best to fill the role adequately. Below is a list of ranks and the permissions they come with. Ranks can be given to residents with the command `/t rank add [Username] [Rank]`.
+Mayors can delegate responsibilities to residents using `/t rank add [Username] [Rank]`.
 
-1. **Co-Mayor**: Can perform all actions the Mayor can, except:
-    * Disband the town.
-    * Create, join, or leave a nation.
+### Co-Mayor
 
-2. **Assistant**:
-    * Can manage town land (claim/unclaim plots).
-    * Add or kick residents.
-    * Build anywhere in the town.
-    * Manage town jails.
+- Holds near-identical authority to the Mayor over plots, claiming, settings, taxation, and finances.
+- Can assign Builder, Banker, and Guard ranks.
+- Cannot delete the town.
+- Cannot create, join, or leave a nation.
+- Cannot assign Assistant or Co-Mayor ranks.
+- Stands first in line for mayoral succession and cannot be kicked from the town.
 
-3. **Builder**:
-    * Can build anywhere in the town, bypassing plot permissions.
+### Assistant
 
-4. **Banker**:
-    * Can deposit and withdraw money from the town bank.
-    * Access the town's financial history.
+- Manages land and plots.
+- Claims and unclaims town territory.
+- Invites new residents using `/t invite [Username]`.
+- Configures plot settings and toggles public town spawn status.
+- Interacts with switches (doors, levers, buttons, containers) in town-owned communal land.
+- Assigns the Noble cosmetic rank.
+- Sends outlaws to jail plots.
+- Cannot kick residents and cannot place or break blocks in town-owned land.
+- Stands second in line for mayoral succession and cannot be kicked from the town.
 
-5. **Guard**:
-    * Manage jail plots.
-    * Assign and arrest outlaws.
+### Banker
 
-## Town Titles
+- Manages municipal accounts.
+- Deposits and withdraws funds from the town bank.
+- Views the town bank transaction history.
+- Stands third in line for mayoral succession.
 
-You can assign customised town titles to members of your settlement. These have no gameplay impact and provide some simple aesthetic and informational flavour.
+### Builder
 
-You can assign these titles via `/t set title [Username] [Title]`. These titles can be given special colours, either via regular Minecraft colour codes (`&[code]`) or a specific hex colour (`<#[hex]>`). Nation titles will override town titles.
+- Holds unrestricted build, destroy, switch, and item use permissions across all town-owned communal property.
+- Does not bypass permissions on privately owned resident plots.
+
+### Guard
+
+- Enforces town security.
+- Jails and unjails players using town jail plots.
+- Views the town prisoner list.
+- Arrests active outlaws inside town borders.
+- Cannot declare new outlaws via `/t outlaw add`.
+
+## Town Titles & Surnames
+
+Mayors and Co-Mayors can assign custom titles and surnames to residents using `/t set title [Username] [Title]` and `/t set surname [Username] [Surname]`. 
+
+Titles appear before the player's username in chat and town status screens. Both standard Minecraft color formatting and MiniMessage hex color codes (`<#RRGGBB>`) are supported. If a resident's nation assigns a national title, the nation title overrides the town title.
